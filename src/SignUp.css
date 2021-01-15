@@ -1,0 +1,45 @@
+.auth-input {
+  padding: 0.5rem 0.5rem;
+  margin: 2rem auto;
+  width: 80%;
+  display: block;
+  border: none;
+  border-bottom: 2px solid;
+}
+
+.signup-art-image {
+  width: 70%;
+  margin: 2rem 0px;
+}
+
+.signup-box {
+  width: 80%;
+  border: 2px solid teal;
+  border-radius: 5px;
+  background: rgba(251, 253, 255, 0.7490196078431373);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  padding: 2rem 10%;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.signup-row {
+  margin: 5rem 0;
+}
+
+.error-message {
+  color: red;
+}
+
+.primary-image-show {
+  height: 150px;
+  width: 150px;
+}
+
+.alt-auth-link {
+  margin-top: 1rem;
+}

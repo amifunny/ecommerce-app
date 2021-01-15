@@ -1,0 +1,21 @@
+.login-art-image {
+  width: 70%;
+  margin: 2rem 0px;
+}
+
+.login-box {
+  width: 80%;
+  border: 2px solid teal;
+  border-radius: 5px;
+  background: rgba(251, 253, 255, 0.7490196078431373);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  padding: 2rem 10%;
+}
+
+.login-row {
+  margin: 5rem 0;
+}
+
+.alt-auth-link {
+  margin-top: 1rem;
+}
