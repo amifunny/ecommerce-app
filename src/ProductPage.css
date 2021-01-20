@@ -1,188 +1,228 @@
-.banner-img {
-  width: 100%;
-}
-
-.banner-img-div {
-  height: 80vh;
-  width: 100%;
-  overflow: hidden;
-  position: relative;
-}
-
-.banner-cover {
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
-  color: whitesmoke;
-  position: absolute;
-  top: 0;
-  height: 100%;
-}
-
-.app-top-bar {
-  width: 100%;
-  background-color: #c69c6d;
-  left: 0;
-  z-index: 5;
-  padding: 1rem;
-  color: white;
-}
-
-.user-profile-bar {
-  width: 25%;
-  position: absolute;
-  right: 5%;
-  cursor: pointer;
-}
-
-.user-profile-bar-inner {
-  position: relative;
-}
-
-.user-profile-pic {
-  width: 4rem;
-  height: 4rem;
-  margin: auto 1rem;
-}
-
-.arrow-down-icon {
-  width: 2rem;
-  height: 2rem;
-}
-
-.user-info-float {
-  position: absolute;
-  width: 100%;
-  padding: 1rem 2rem;
-  left: 0;
-  top: 100%;
-  z-index: 5;
-  background-color: #c69c6d;
-}
-
-.product-section-head {
-  margin: 5rem auto;
-}
-
-.product-image {
-  max-width: 100%;
-  border-radius: 1rem;
-}
-
-.product-image-div {
-  position: relative;
-  margin: 2rem 0;
-  border-radius: 1rem;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-}
-
-.product-buy-cover {
-  width: 100%;
-  height: 70%;
-  color: whitesmoke;
-  z-index: 1;
-  opacity: 0;
-  cursor: pointer;
-  border-radius: 1rem;
-}
-
-.buy-button {
-  background: transparent;
-  border: 2px solid whitesmoke;
-  border-radius: 0;
-  padding: 0.5rem 1rem;
-}
-
-.buy-button:hover {
-  border: 3px solid #c69c6d;
-  color: #c69c6d;
-  background-color: transparent;
-}
-
-.product-float-div {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  border-radius: 1rem;
-  top: 0;
-  left: 0;
-}
-
-.product-buy-cover:hover {
-  background-color: rgba(0, 0, 0, 0.6);
-  opacity: 1;
-}
-
-.product-info {
-  height: 30%;
-  border-radius: 0 0 1rem 1rem;
-  padding: 1.5rem 1.2rem;
-  text-align: left;
-  color: #666;
-  background-color: #eeeeee;
-  line-height: 20px;
-  font-family: "Roboto", sans-serif;
-}
-
-.product-info-title {
-  margin-bottom: 1rem;
-}
-
-.product-price {
-  font-size: 1.5rem;
-}
-
-.product-rating-icon {
-  width: 1.2rem;
-  height: 1.2rem;
-  margin: 0 0.2rem;
-}
-
-.flex-left {
+.flex-display {
   display: flex;
-  justify-content: left;
-}
-
-.rate-bar {
-  width: 80%;
-  height: 4px;
-  background-color: gray;
-  margin-top: 0.3rem;
-  margin-bottom: 1rem;
-}
-
-.rate-bar-fill {
-  height: 100%;
-  background-color: #c69c6d;
-}
-
-.about-section {
-  width: 100%;
-  background-color: #eeeeee;
-  margin-top: 2rem;
-  padding: 5rem 1rem;
-}
-
-.about-feature {
-  text-align: center;
-  margin: auto 10%;
-}
-
-.about-feature-img {
-  width: 90%;
-  height: 50vh;
-  margin: 2rem 0;
-}
-
-.footer-container {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-
-  background-color: black;
-  color: whitesmoke;
 }
 
 .flex-center {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+/*  - Menu - */
+.menu-container {
+  background-color: #3a3e48;
+  color: white;
+}
+
+.all-drop-down {
+  font-weight: bold;
+}
+
+.menu-item {
+  padding: 1rem 2rem;
+  cursor: pointer;
+}
+
+.menu-item:hover {
+  color: #396ce9;
+}
+
+/* - User Bar - */
+.user-location {
+  text-transform: uppercase;
+}
+
+.user-profile-button {
+  position: relative;
+  cursor: pointer;
+}
+
+.user-profile-pic {
+  height: 3rem;
+  width: 3rem;
+}
+
+.user-info-float {
+  position: absolute;
+  text-align: left;
+  z-index: 1;
+  padding: 1rem;
+  border-radius: 1rem;
+  top: 100%;
+  width: 300px;
+  background-color: #fcfeff;
+  box-shadow: 1px 1px 10px 5px #20202073;
+}
+
+.user-info-div {
+  padding: 0.5rem;
+  border-bottom: 1px solid #404040;
+}
+
+.user-info-title {
+  color: black;
+}
+
+.user-info-value {
+  color: #404040;
+  font-size: 0.9rem;
+}
+
+.logout-div {
+  border: 0;
+}
+
+.user-bar-button {
+  margin-right: 1.5rem;
+}
+
+.user-bar-icon {
+  width: 2rem;
+  height: 2rem;
+}
+
+/* - Header - */
+
+.header-container {
+  box-shadow: 0px 5px 22px 0px #a1a1a14a;
+}
+
+.header-row {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.company-name {
+  text-align: right;
+  font-size: 2rem;
+  color: #007bff;
+}
+
+.search-bar {
+  padding: 0.5rem 1rem;
+  width: 80%;
+  height: 100%;
+  border: 0;
+  background: #f4f4f4;
+  margin: auto;
+  border-radius: 0;
+}
+
+.header-button {
+  margin: 0 1rem;
+  padding: 0 0.5rem;
+  cursor: pointer;
+}
+
+.header-button:hover {
+  color: #007bff;
+}
+
+.header-button-icon {
+  width: 3rem;
+  height: 100%;
+  padding: 0 0.2rem;
+}
+
+.header-sell-button {
+  padding: 0rem 2rem;
+  font-weight: bold;
+}
+
+.header-sell-button:hover {
+  background-color: white;
+}
+
+/* - About - */
+.about-row {
+  padding: 2rem 0;
+}
+
+.about-info {
+  padding-top: 2rem;
+  padding-bottom: 10vh;
+  text-align: left;
+}
+
+.about-info-text {
+  line-height: 3rem;
+}
+
+h2.about-info-text {
+  font-weight: bold;
+}
+
+.about-image {
+  width: auto;
+  height: 40vh;
+}
+
+/* - Product Section - */
+.product-tabs-row {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.nav-item {
+  border: 1px solid #d3d3d3;
+  border-right: 0;
+}
+
+.nav-link {
+  color: black;
+}
+
+.nav-link.active {
+  color: white;
+  font-weight: bold;
+  background-color: #3a6be8;
+  border-radius: 0;
+}
+
+/* - Card - */
+.card-header {
+  padding: 0.5rem 1.25rem;
+  margin-bottom: 0;
+  background-color: white;
+  border: 0;
+}
+
+.card-body {
+  text-align: left;
+}
+
+.card-profile-img {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.card-header-text {
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+.card-body-img {
+  object-fit: cover;
+  height: 15rem;
+  width: 94%;
+  margin: auto;
+  border-radius: 0;
+}
+
+.card-duration {
+  font-size: 0.7rem;
+}
+
+.card-like-button {
+  height: 100%;
+  width: 60%;
+}
+
+/* - footer - */
+.footer-container {
+  color: white;
+  background-color: black;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }

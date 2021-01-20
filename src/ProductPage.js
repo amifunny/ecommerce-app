@@ -1,52 +1,114 @@
 import React, { Component } from 'react';
-import {Container, Row, Col, Button, Image} from 'react-bootstrap';
+import {Container, Row, Col, Button, Card, Image, Tabs,Nav, Tab} from 'react-bootstrap';
 import "./ProductPage.css";
 import {Redirect} from 'react-router-dom'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-import productImg from "./pictures/product_img.jpg"
-import bannerImg from "./pictures/product_banner.jpg"
-import aboutArt1 from "./pictures/about_latest.svg"
-import aboutArt2 from "./pictures/about_quality.svg"
-import aboutArt3 from "./pictures/about_simple.svg"
-import arrowDownIcon from "./pictures/arrow_down.svg"
-import ratingStar from "./pictures/rating_star.svg"
-
+import AboutImage from './pictures/product_banner1.jpg'
+import CardBody from './pictures/card_body.jpg'
+import CardProfile from './pictures/card_profile.jpeg'
+import {BsHeart} from 'react-icons/bs';
+import { RiArrowDownSLine } from "react-icons/ri";
+import { IoWalletOutline, IoLocationSharp, IoHeartOutline,IoChatbubbleOutline } from "react-icons/io5";
+import {AiOutlineShoppingCart} from "react-icons/ai";
 
 const ProductPage = () => {
     return ( 
-        <div>
-            <HeadBanner />
-            <ProductSection />
+        <>
+            <Menu />
+            <Header />
             <AboutSection />
+            <ProductSection />
             <FooterSection />
-        </div>
+        </>
     );
 }
 
 export default ProductPage;
 
-const HeadBanner = () => {
+const Menu = () => {
     return ( 
-        <div>
-            <div className="app-top-bar flex-center">
-                <div>
-                    <h3>E-Commerce</h3>
-                    <div>The future is here.</div>
-                </div>
-                <UserBar />
-            </div>
-            <div className="banner-img-div">
-                <Image className="banner-img" src={bannerImg} />
-                <div className="flex-center banner-cover">
-                    <div>
-                        <h1>Only the Best.</h1>
-                        <h6>Loved wordwide.</h6>
+        <Container className="menu-container" fluid>
+            <Row>
+                <Col md={8} className="flex-display">
+                    <div className="menu-item all-drop-down">
+                        All
+                        <RiArrowDownSLine />
                     </div>
-                </div>
-            </div>
-        </div>
+                    <div className="menu-item">Mobiles</div>
+                    <div className="menu-item">Laptops</div>
+                    <div className="menu-item">Video Games</div>
+                    <div className="menu-item">Watches</div>
+                    <div className="menu-item">Table</div>
+                    <div className="menu-item">More</div>
+                </Col>
+                <Col md={4}>
+                    <UserBar />
+                </Col>
+            </Row>
+        </Container>
     );
 }
+
+const Header = () =>{
+    return (
+        <Container className="header-container" fluid>
+            <Row className="header-row">
+                <Col md={2}>
+                    <h1 className="company-name">ZHiffy</h1>
+                </Col>
+                <Col md={6}>
+                    <input placeholder="All"
+                    className="search-bar" />
+                </Col>
+                <Col md={4} className="flex-display">
+                    <div className="header-button">
+                        <IoWalletOutline className="header-button-icon" />
+                        <span>Balance</span>
+                    </div>
+                    <div className="header-button">
+                        <AiOutlineShoppingCart className="header-button-icon"/>
+                    </div>
+                    <Button className="header-sell-button header-button"
+                    variant="primary">Sell</Button>
+                </Col>
+            </Row>
+        </Container>
+    )
+}
+
+
+const AboutSection = () => {
+    return ( 
+        <Container>
+            <Row className="about-row">
+                <Col className="about-info" md={6}>
+                    <div>
+                        <h2 className="about-info-text">
+                            Sell, Buy & Exchange Pre Used.
+                        </h2>
+                    </div>
+                    <div>
+                        <h2 className="about-info-text">
+                            Without fear. Guaranteed.
+                        </h2>
+                    </div>
+                    <div>
+                        <h6 className="about-info-text">
+                            Verified Profiles.
+                            Free Delivery.
+                            Online transactions only.
+                        </h6>
+                    </div>
+                </Col>
+                <Col md={6}>
+                    <Image className="about-image" src={AboutImage} />
+                </Col>
+            </Row>
+        </Container>
+    );
+}
+ 
 
 class UserBar extends Component {
     constructor(props) {
@@ -55,7 +117,9 @@ class UserBar extends Component {
             name: "",
             message:"",
             image:"",
-            email: localStorage.getItem("email"),
+            // email: localStorage.getItem("email"),
+            email: "k@gmail.com",
+            location:"Hyderabad",
             isShown: false
         }
         
@@ -102,21 +166,44 @@ class UserBar extends Component {
             
         }else{
             return (
-                <div className="user-profile-bar">
+                <div className="flex-display" style={{height:"100%"}}>
+                    <div className="user-bar-button flex-center">
+                        <span>
+                            <IoLocationSharp className="user-bar-icon"/>
+                        </span>
+                        <span className="user-location">
+                            {this.state.location}
+                        </span>
+                    </div>
                     <div onClick={this.onBarClick}
-                    className="user-profile-bar-inner">
-                        <span>{this.state.name}</span>
-                        <Image className="user-profile-pic" src={this.state.image} roundedCircle/>
-                        <Image className="arrow-down-icon" src={arrowDownIcon}/>
-
+                    className="user-bar-button user-profile-button flex-center">
+                        <Image className="user-profile-pic" src={this.state.image}/>
                         { this.state.isShown && 
                         (<div ref={this.infoFloat} className="user-info-float">
-                            <div>Email : {this.state.email}</div>
-                            <div>Description : {this.state.message}</div>
+                            <div className="user-info-div">
+                                <div className="user-info-title">Name</div>
+                                <div className="user-info-value">{this.state.name}</div>
+                            </div>
+                            <div className="user-info-div">
+                                <div className="user-info-title">Email</div>
+                                <div className="user-info-value">{this.state.email}</div>
+                            </div>
+                            <div className="user-info-div">
+                                <div className="user-info-title">Description</div>
+                                <div className="user-info-value">{this.state.message}</div>
+                            </div>
+                            <div className="user-info-div logout-div flex-center">
+                                <Button variant="danger">LogOut</Button>
+                            </div>
                         </div>)
                         }
                     </div>
-                    
+                    <div className="user-bar-button flex-center">
+                        <IoHeartOutline className="user-bar-icon"/>
+                    </div>
+                    <div className="user-bar-button flex-center">
+                        <IoChatbubbleOutline className="user-bar-icon"/>
+                    </div>
                 </div>
             );
                     }
@@ -124,109 +211,94 @@ class UserBar extends Component {
 }
 
 const ProductSection = () => {
-    let productList = [...Array(12).keys()].map((num)=>{
+    
+    return ( 
+    <Container>
+    <Tab.Container id="left-tabs-example" defaultActiveKey="store">
+        <Row className="product-tabs-row">
+            <Nav variant="pills" className="flex-row">
+                <Nav.Item>
+                <Nav.Link eventKey="store">Just in Store</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                    <Nav.Link eventKey="you">For You</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                    <Nav.Link eventKey="viewed">Most Viewed</Nav.Link>
+                </Nav.Item>
+                <Nav.Item style={{borderRight: "1px solid #d3d3d3"}}>
+                    <Nav.Link eventKey="hot">What's Hot?</Nav.Link>
+                </Nav.Item>
+            </Nav>
+        </Row>
+        <Row>
+            <Tab.Content>
+                <Tab.Pane eventKey="store">
+                    <ProductList />
+                </Tab.Pane>
+                <Tab.Pane eventKey="you">
+                    <ProductList />
+                </Tab.Pane>
+                <Tab.Pane eventKey="viewed">
+                    <ProductList />
+                </Tab.Pane>
+                <Tab.Pane eventKey="hot">
+                    <ProductList />
+                </Tab.Pane>
+            </Tab.Content>
+        </Row>
+    </Tab.Container>
+    </Container>    
+    );
+}
+
+const ProductList = ()=>{
+    let productList = [...Array(4).keys()].map((num)=>{
         return (
-            <Col key={num} md={4}>
+            <Col key={num} md={3}>
                 <ProductCard />
             </Col>
         )
     });
-    
-    return ( 
-        <Container>
-            <Row>
-                <h1 className="product-section-head"> Products </h1>
-            </Row>
-            <Row>
-                {productList}
-            </Row>
-        </Container>
-    );
+
+    return (
+        <Row>
+            {productList}
+        </Row>
+    )
 }
- 
 
 const ProductCard = () => {
 
-    const productName = "Mauve Gown with resham and sequins"
-    const totalProductRating = 5.0;
-    const productRating = "4.0";
-    const productPrice = "3560.00";
-    
     return ( 
-        <div>
-            <div class="product-image-div">
-                <Image src={productImg} className="product-image" />
-                <div className="product-float-div">
-                    <div className="product-buy-cover flex-center">
-                        <div>
-                            <Button className="buy-button"> Buy Now</Button>
-                        </div>
-                    </div>
-                    <div className="product-info">
-                        <div className="product-info-title">{productName}</div>
-                        <div>
-                            <div className="flex-left">
-                                <div>{productRating}</div>
-                                <Image className="product-rating-icon"width="2rem" src={ratingStar} />
-                            </div>
-                        <RatingBar totalRating={totalProductRating} rating={productRating} />
-                        </div>
-                        <div> 
-                            <span>₹</span>
-                            <span className="product-price">{productPrice}</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <Card style={{ maxWidth: '18rem', width: "100%" }}>
+            <Card.Header>
+                <Row>
+                    <Col span={3}>
+                        <Image className="card-profile-img"
+                        roundedCircle src={CardProfile}/>
+                    </Col>
+                    <Col className="card-header-text" span={7}>
+                        <div>DogsDayOut</div>
+                        <div className="card-duration">6 Days ago</div>
+                    </Col>
+                    <Col span={2}>
+                        <BsHeart className="card-like-button" />
+                    </Col>
+                </Row>
+            </Card.Header>
+            <Card.Img className="card-body-img" variant="top" src={CardBody} />
+            <Card.Body className="card-body">
+                <Card.Title>Cool Caption here...</Card.Title>
+                <Card.Text>
+                    In the car with beanie.
+                </Card.Text>
+            </Card.Body>
+        </Card>
     );
 }
 
-const RatingBar = (props) => {
-    const fillWidth = ( 100*(props.rating/props.totalRating) )
 
-    return ( 
-        <div className="rate-bar">
-            <div style={{width: fillWidth + '%'}} className="rate-bar-fill"></div>
-        </div>
-    );
-}
-  
-const AboutSection = () => {
-    return ( 
-        <Container fluid className="about-section">
-            <Container>
-            <Row className="flex-center">
-                <div>
-                    <h1>Why People love us?</h1>
-                    <h5>Because we mean ...</h5>
-                </div>
-            </Row>
-            <Row>
-                <Col md={4}>
-                    <div className="about-feature" >
-                        <Image className="about-feature-img" src={aboutArt1} />
-                        <h3>Latest</h3>
-                    </div>
-                </Col>
-                <Col md={4}>
-                    <div className="about-feature" >
-                        <Image className="about-feature-img" src={aboutArt2} />
-                        <h3>Quality</h3>
-                    </div>
-                </Col>
-                <Col md={4}>
-                    <div className="about-feature">
-                        <Image className="about-feature-img" src={aboutArt3} />
-                        <h3>Simple</h3>
-                    </div>
-                </Col>
-            </Row>
-            </Container>
-        </Container>
-    );
-}
- 
 const FooterSection = () => {
     return ( 
         <Container fluid className="footer-container">
