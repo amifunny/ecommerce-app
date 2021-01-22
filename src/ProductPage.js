@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import {Container, Row, Col, Button, Card, Image, Tabs,Nav, Tab} from 'react-bootstrap';
 import "./ProductPage.css";
+import "./ProductPageResponsive.css";
+
 import {Redirect} from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -30,17 +32,19 @@ const Menu = () => {
     return ( 
         <Container className="menu-container" fluid>
             <Row>
-                <Col md={8} className="flex-display">
-                    <div className="menu-item all-drop-down">
-                        All
-                        <RiArrowDownSLine />
+                <Col md={8} className="menu-list">
+                    <div className="flex-display ">
+                        <div className="menu-item all-drop-down">
+                            All
+                            <RiArrowDownSLine />
+                        </div>
+                        <div className="menu-item">Mobiles</div>
+                        <div className="menu-item">Laptops</div>
+                        <div className="menu-item">Video Games</div>
+                        <div className="menu-item">Watches</div>
+                        <div className="menu-item">Table</div>
+                        <div className="menu-item">More</div>
                     </div>
-                    <div className="menu-item">Mobiles</div>
-                    <div className="menu-item">Laptops</div>
-                    <div className="menu-item">Video Games</div>
-                    <div className="menu-item">Watches</div>
-                    <div className="menu-item">Table</div>
-                    <div className="menu-item">More</div>
                 </Col>
                 <Col md={4}>
                     <UserBar />
@@ -54,14 +58,14 @@ const Header = () =>{
     return (
         <Container className="header-container" fluid>
             <Row className="header-row">
-                <Col md={2}>
+                <Col sm={12} md={3}>
                     <h1 className="company-name">ZHiffy</h1>
                 </Col>
-                <Col md={6}>
+                <Col sm={12} md={5}>
                     <input placeholder="All"
                     className="search-bar" />
                 </Col>
-                <Col md={4} className="flex-display">
+                <Col sm={12} md={4} className="action-list flex-display">
                     <div className="header-button">
                         <IoWalletOutline className="header-button-icon" />
                         <span>Balance</span>
@@ -82,7 +86,7 @@ const AboutSection = () => {
     return ( 
         <Container>
             <Row className="about-row">
-                <Col className="about-info" md={6}>
+                <Col className="about-info" md={6} sm={12}>
                     <div>
                         <h2 className="about-info-text">
                             Sell, Buy & Exchange Pre Used.
@@ -101,7 +105,7 @@ const AboutSection = () => {
                         </h6>
                     </div>
                 </Col>
-                <Col md={6}>
+                <Col md={6} sm={12}>
                     <Image className="about-image" src={AboutImage} />
                 </Col>
             </Row>
@@ -166,7 +170,7 @@ class UserBar extends Component {
             
         }else{
             return (
-                <div className="flex-display" style={{height:"100%"}}>
+                <div className="user-column flex-display" style={{height:"100%"}}>
                     <div className="user-bar-button flex-center">
                         <span>
                             <IoLocationSharp className="user-bar-icon"/>
@@ -216,36 +220,40 @@ const ProductSection = () => {
     <Container>
     <Tab.Container id="left-tabs-example" defaultActiveKey="store">
         <Row className="product-tabs-row">
-            <Nav variant="pills" className="flex-row">
-                <Nav.Item>
-                <Nav.Link eventKey="store">Just in Store</Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                    <Nav.Link eventKey="you">For You</Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                    <Nav.Link eventKey="viewed">Most Viewed</Nav.Link>
-                </Nav.Item>
-                <Nav.Item style={{borderRight: "1px solid #d3d3d3"}}>
-                    <Nav.Link eventKey="hot">What's Hot?</Nav.Link>
-                </Nav.Item>
-            </Nav>
+            <Col>
+                <Nav variant="pills" className="flex-row">
+                    <Nav.Item>
+                    <Nav.Link eventKey="store">Just in Store</Nav.Link>
+                    </Nav.Item>
+                    <Nav.Item>
+                        <Nav.Link eventKey="you">For You</Nav.Link>
+                    </Nav.Item>
+                    <Nav.Item>
+                        <Nav.Link eventKey="viewed">Most Viewed</Nav.Link>
+                    </Nav.Item>
+                    <Nav.Item style={{borderRight: "1px solid #d3d3d3"}}>
+                        <Nav.Link eventKey="hot">What's Hot?</Nav.Link>
+                    </Nav.Item>
+                </Nav>
+            </Col>
         </Row>
         <Row>
-            <Tab.Content>
-                <Tab.Pane eventKey="store">
-                    <ProductList />
-                </Tab.Pane>
-                <Tab.Pane eventKey="you">
-                    <ProductList />
-                </Tab.Pane>
-                <Tab.Pane eventKey="viewed">
-                    <ProductList />
-                </Tab.Pane>
-                <Tab.Pane eventKey="hot">
-                    <ProductList />
-                </Tab.Pane>
-            </Tab.Content>
+            <Col>
+                <Tab.Content>
+                    <Tab.Pane eventKey="store">
+                        <ProductList />
+                    </Tab.Pane>
+                    <Tab.Pane eventKey="you">
+                        <ProductList />
+                    </Tab.Pane>
+                    <Tab.Pane eventKey="viewed">
+                        <ProductList />
+                    </Tab.Pane>
+                    <Tab.Pane eventKey="hot">
+                        <ProductList />
+                    </Tab.Pane>
+                </Tab.Content>
+            </Col>
         </Row>
     </Tab.Container>
     </Container>    
@@ -255,7 +263,7 @@ const ProductSection = () => {
 const ProductList = ()=>{
     let productList = [...Array(4).keys()].map((num)=>{
         return (
-            <Col key={num} md={3}>
+            <Col className="flex-center" key={num} lg={3} xs={12} sm={6} md={4}>
                 <ProductCard />
             </Col>
         )
@@ -269,23 +277,20 @@ const ProductList = ()=>{
 }
 
 const ProductCard = () => {
-
     return ( 
-        <Card style={{ maxWidth: '18rem', width: "100%" }}>
-            <Card.Header>
-                <Row>
-                    <Col span={3}>
-                        <Image className="card-profile-img"
-                        roundedCircle src={CardProfile}/>
-                    </Col>
-                    <Col className="card-header-text" span={7}>
-                        <div>DogsDayOut</div>
-                        <div className="card-duration">6 Days ago</div>
-                    </Col>
-                    <Col span={2}>
-                        <BsHeart className="card-like-button" />
-                    </Col>
-                </Row>
+        <Card style={{ maxWidth: '15rem', width: "100%" }}>
+            <Card.Header className="flex-center">
+                <div style={{width:"25%"}}>
+                    <Image className="card-profile-img"
+                    roundedCircle src={CardProfile}/>
+                </div>
+                <div className="card-header-text" style={{width:"50%"}}>
+                    <div>DogsDayOut</div>
+                    <div className="card-duration">6 Days ago</div>
+                </div>
+                <div style={{width:"25%"}}>
+                    <BsHeart className="card-like-button" />
+                </div>
             </Card.Header>
             <Card.Img className="card-body-img" variant="top" src={CardBody} />
             <Card.Body className="card-body">
